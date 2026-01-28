@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English to Kannada Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🌐 English to Kannada Translator</h1>
+            <p class="subtitle">Translate & Listen to Kannada</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <div class="section input-section">
+                <label for="english-text" class="label">English Text</label>
+                <textarea 
+                    id="english-text" 
+                    class="textarea" 
+                    placeholder="Enter English text here..."
+                    rows="5"></textarea>
+                <div class="char-count">
+                    <span id="char-count">0</span> / 500 characters
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="button-group">
+                <button id="translate-btn" class="btn btn-primary">
+                    <span class="btn-icon">🔄</span> Translate
+                </button>
+                <button id="clear-btn" class="btn btn-secondary">
+                    <span class="btn-icon">🗑️</span> Clear
+                </button>
+            </div>
+
+            <!-- Output Section -->
+            <div class="section output-section">
+                <label for="kannada-text" class="label">Kannada Translation</label>
+                <textarea 
+                    id="kannada-text" 
+                    class="textarea" 
+                    placeholder="Translation will appear here..."
+                    rows="5"
+                    readonly></textarea>
+            </div>
+
+            <!-- Audio Control Section -->
+            <div class="section audio-section">
+                <div class="audio-header">
+                    <h3>🔊 Audio Playback</h3>
+                </div>
+
+                <div class="audio-controls">
+                    <button id="play-btn" class="btn btn-audio" disabled>
+                        <span class="btn-icon">▶️</span> Play Audio
+                    </button>
+                    <button id="download-btn" class="btn btn-audio" disabled>
+                        <span class="btn-icon">⬇️</span> Download Audio
+                    </button>
+                    <button id="stop-btn" class="btn btn-audio-stop" style="display: none;">
+                        <span class="btn-icon">⏹️</span> Stop
+                    </button>
+                </div>
+
+                <!-- Audio Player -->
+                <div class="audio-player">
+                    <audio id="audio-player" controls style="width: 100%; margin-top: 10px;">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+
+            <!-- Status Message -->
+            <div id="status" class="status-message"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>💡 Tip: Enter English text and click Translate to get Kannada translation with audio</p>
+            <p style="font-size: 0.9em; margin-top: 5px;">Powered by Google Translate & pyttsx3</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
